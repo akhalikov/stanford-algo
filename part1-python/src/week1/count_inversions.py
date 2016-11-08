@@ -50,18 +50,17 @@ def count_inversions(arr):
     return _sort_and_count(0, len(arr))
 
 
-def file2list(filename):
-    with open(filename, 'r') as inp:
-        return [int(line) for line in inp]
-
-
 def main():
     if len(sys.argv) < 2:
         print("input file name expected")
-    else:
-        numbers = file2list(sys.argv[1])
+        exit(0)
+
+    filename = sys.argv[1]
+    print("reading file: ", filename)
+    with open(filename, 'r') as f:
+        numbers = [int(line) for line in f]
         n = count_inversions(numbers)
-        print("number of inversions is: ", n)
+        print("count of inversions: ", n)
 
 
 if __name__ == "__main__":
